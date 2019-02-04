@@ -1,15 +1,25 @@
-
 %{
 #include<stdio.h>
 %}
 
 %%
 
-[#].*[\n]* {return T_single_line}; /*single line comments*/
-[\"][\"][\"]([^\"]|[\n])*[\"][\"][\"][\n]* {return T_multi_line}; /*multiline comments */
-[a-zA-Z] {return T_alpha}; /*alhabets*/
-[0-9] {T_digit}; /*digits*/
-[\n] {T_new_line}; /* new line*/
+[#].*[\n]* {return T_single_line}; 
+[\"][\"][\"]([^\"]|[\n])*[\"][\"][\"][\n]* {return T_multi_line};
+[a-zA-Z] {return T_alpha};
+[0-9] {return T_digit};
+[\n] {return T_new_line};
+"if" {return T_if};
+"else" {return T_else};
+"elif" {return T_elif};
+"while" {return T_while};
+"import" {return T_import};
+"as" {return T_as};
+"from" {return T_from};
+[=] {return T_asop};
+[:] {return T_colon};
+[\t] {{return T_indent};
+
 
 %%				
 
@@ -17,14 +27,4 @@
 int yywrap()
 {
 return 1;
-}
-
-
-
-int main()
-{
-yyin=fopen("/home/vogiral/Desktop/AC_Assignment1.py","r");
-yyout=fopen("/home/vogiral/Desktop/out.py","w");
-yylex();
-return 0;
 }
