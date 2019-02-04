@@ -23,8 +23,8 @@ return 1;
 
 int main()
 {
-yyin=fopen("/home/vogiral/Desktop/AC_Assignment1.py","r");
-yyout=fopen("/home/vogiral/Desktop/out.py","w");
+yyin=fopen("input.py","r");
+yyout=fopen("output.py","w");
 yylex();
 return 0;
 }
