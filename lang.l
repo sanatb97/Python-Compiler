@@ -28,7 +28,7 @@ int yywrap()
 {
 return 1;
 }
-<<<<<<< HEAD
+
 
 
 
@@ -39,5 +39,4 @@ yyout=fopen("output.py","w");
 yylex();
 return 0;
 }
-=======
->>>>>>> 8e58f5306ae8836f1a2f8967031bcb78dd959ca5
+
