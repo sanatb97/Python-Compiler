@@ -4,11 +4,12 @@
 	#include "y.tab.h"
 	int yylex(void);
 	int yyerror(char *);
+	int res=0;
 
 %}
-%token T_single_line T_multi_line T_alpha T_digit T_new_line T_if T_else T_elif T_while T_import T_as T_from T_asop T_colon T_indent T_plus
-%left '+' '-'
-%left '*' '/'
+%token T_digit T_new_line T_if T_else T_elif T_while T_import T_as T_from T_asop T_colon T_indent T_plus  
+%left T_plus T_minus
+%left T_mult T_div
 %%
 stmt: expr {res=$$;};
 expr: expr T_plus expr {$$ = $1+$3;}
@@ -33,5 +34,3 @@ void main()
 	printf("Result of expression = %d",res);
 	exit(0);
 }
-
-
