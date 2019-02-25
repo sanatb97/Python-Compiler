@@ -18,7 +18,15 @@
 "from" {return T_from};
 [=] {return T_asop};
 [:] {return T_colon};
-[\t] {{return T_indent};
+[\t] {return T_indent};
+"+" {return T_plus};
+"-" {return T_minus};
+"*" {return T_mult};
+"/" {return T_div};
+"%" {return T_mod};
+"^" {return T_exp};
+
+
 
 
 %%				
