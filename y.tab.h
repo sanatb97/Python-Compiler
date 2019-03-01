@@ -45,51 +45,17 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    T_single_line = 258,
-    T_multi_line = 259,
-    T_alpha = 260,
-    T_digit = 261,
-    T_new_line = 262,
-    T_if = 263,
-    T_else = 264,
-    T_elif = 265,
-    T_while = 266,
-    T_import = 267,
-    T_as = 268,
-    T_from = 269,
-    T_asop = 270,
-    T_colon = 271,
-    T_indent = 272,
-    T_plus = 273,
-    T_minus = 274,
-    T_div = 275,
-    T_mult = 276,
-    T_exp = 277,
-    T_mod = 278
+    T_digit = 258,
+    T_alpha = 259,
+    T_US = 260,
+    T_asop = 261
   };
 #endif
 /* Tokens.  */
-#define T_single_line 258
-#define T_multi_line 259
-#define T_alpha 260
-#define T_digit 261
-#define T_new_line 262
-#define T_if 263
-#define T_else 264
-#define T_elif 265
-#define T_while 266
-#define T_import 267
-#define T_as 268
-#define T_from 269
-#define T_asop 270
-#define T_colon 271
-#define T_indent 272
-#define T_plus 273
-#define T_minus 274
-#define T_div 275
-#define T_mult 276
-#define T_exp 277
-#define T_mod 278
+#define T_digit 258
+#define T_alpha 259
+#define T_US 260
+#define T_asop 261
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
