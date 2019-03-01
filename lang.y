@@ -1,36 +1,54 @@
 %{
-	#include <stdio.h>
-	#include<stdlib.h>
-	#include "y.tab.h"
-	int yylex(void);
-	int yyerror(char *);
-	int res=0;
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "y.tab.h"
+void yyerror(char *);
+int flag =0;
 
 %}
-%token T_digit T_new_line T_if T_else T_elif T_while T_import T_as T_from T_asop T_colon T_indent T_plus  
-%left T_plus T_minus
-%left T_mult T_div
-%%
-stmt: expr {res=$$;};
-expr: expr T_plus expr {$$ = $1+$3;}
-	| expr T_minus expr {$$ = $1-$3;}
-	| expr T_mult expr {$$ = $1*$3;}
-	| expr T_div expr {if($3==0)
-						exit(0);
-						else
-						$$=$1/$3;}
-	|T_digit;
-%%
-int yyerror(char *s)
-{
-	printf("Invalid expression\n");
-}
+%token T_digit T_alpha T_US T_asop 
+%left '+' '-'
+%left '*' '/' '%'
 
+
+%%
+
+/* FOR VALID IDENTIFIER NAMES */
+/*S: valid
+valid : T_alpha P
+P: T_alpha | T_US | T_digit |T_alpha P|T_US P|T_digit P
+*/
+
+/*FOR VALID EXPRESSIONS */
+stmt: expr {printf("Result = %d",$$); return 0;}
+;
+expr:expr '+' expr 	{$$=$1+$3;}
+    |expr '-' expr 	{$$=$1-$3;}
+    |expr '*' expr 	{$$=$1*$3;}
+    |expr '/' expr 	{if($3==0)
+             exit(0);
+             else $$=$1/$3;}
+    |expr '%' expr 	{if($3==0)
+             exit(0);
+             else $$=$1%$3;}
+    |T_digit;
+
+%%
 void main()
 {
-	printf("Enter an expression\n");
-	yyparse();
-	printf("It is a valid expression\n");
-	printf("Result of expression = %d",res);
-	exit(0);
+   printf("Enter any expression\n");
+
+   yyparse();
+
+   printf("\nValid Expression\n");
+
+
 }
+
+void yyerror(char* s)
+{
+	printf("\nEntered arithmetic expression is Invalid\n\n");
+	
+}
+
