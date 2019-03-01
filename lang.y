@@ -7,7 +7,7 @@ void yyerror(char *);
 int flag =0;
 
 %}
-%token T_digit T_alpha T_US T_asop 
+%token T_digit T_alpha T_US T_asop T_NL
 %left '+' '-'
 %left '*' '/' '%'
 
@@ -21,7 +21,9 @@ P: T_alpha | T_US | T_digit |T_alpha P|T_US P|T_digit P
 */
 
 /*FOR VALID EXPRESSIONS */
-stmt: expr {printf("Result = %d",$$); return 0;}
+S: A | B
+A: expr {printf("Result = %d\n",$$); return 0;}
+B: valid{printf("Valid identifier name\n");return 0;}
 ;
 expr:expr '+' expr 	{$$=$1+$3;}
     |expr '-' expr 	{$$=$1-$3;}
@@ -32,23 +34,22 @@ expr:expr '+' expr 	{$$=$1+$3;}
     |expr '%' expr 	{if($3==0)
              exit(0);
              else $$=$1%$3;}
-    |T_digit;
+    |T_digit  {$$=$1;}
+
+valid : T_alpha P
+P: T_alpha | T_US | T_digit |T_alpha P|T_US P|T_digit P
+
+;
 
 %%
 void main()
 {
-   printf("Enter any expression\n");
-
+   printf("Enter any expression | Enter any identifier name\n");
    yyparse();
-
-   printf("\nValid Expression\n");
-
-
 }
 
 void yyerror(char* s)
 {
-	printf("\nEntered arithmetic expression is Invalid\n\n");
-	
+	printf("\nInvalid\n");
 }
 

@@ -48,7 +48,8 @@ extern int yydebug;
     T_digit = 258,
     T_alpha = 259,
     T_US = 260,
-    T_asop = 261
+    T_asop = 261,
+    T_NL = 262
   };
 #endif
 /* Tokens.  */
@@ -56,6 +57,7 @@ extern int yydebug;
 #define T_alpha 259
 #define T_US 260
 #define T_asop 261
+#define T_NL 262
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

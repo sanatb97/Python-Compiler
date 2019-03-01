@@ -9,7 +9,7 @@ extern int yylval;
 [0-9]+ {yylval=atoi(yytext); 
 		return T_digit;}
 [_] {return T_US;}
-[\n] {return 0;}
+[\n] {return T_NL;}
 [=] {return T_asop;}
 [\t] {;}
 . {return yytext[0];}
