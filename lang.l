@@ -10,13 +10,13 @@ extern int yylval;
 		return T_digit;}
 [_] {return T_US;}
 [\n] {return T_NL;}
-[\t] {return T_tab}
+[\t] {return T_tab;}
 [=] {return T_asop;}
-[\t] {;}
 [:] {return T_col;}
-"if" {return T_if;}
-"elif" {return T_elif;}
-"else" {return T_else;}
+'if' {return T_if;}
+'elif' {return T_elif;}
+'else' {return T_else;}
+'while' {return T_while;}
 ">" {return T_GT;}
 "<" {return T_LT;}
 ">=" {return T_GTE;}
