@@ -12,7 +12,11 @@ extern int yylval;
 [\n] {return T_NL;}
 [=] {return T_asop;}
 [\t] {;}
-[:] {T_col}
+[:] {return T_col}
+"if" {return IF}
+"elif" {return ELIF}
+"else" {return ELSE}
+"while" {return WHILE}
 . {return yytext[0];}
 
 %%
