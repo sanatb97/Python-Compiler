@@ -12,6 +12,7 @@ extern int yylval;
 [\n] {return T_NL;}
 [=] {return T_asop;}
 [\t] {;}
+[:] {T_col}
 . {return yytext[0];}
 
 %%
