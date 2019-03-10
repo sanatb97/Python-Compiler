@@ -10,13 +10,19 @@ extern int yylval;
 		return T_digit;}
 [_] {return T_US;}
 [\n] {return T_NL;}
+[\t] {return T_tab}
 [=] {return T_asop;}
 [\t] {;}
-[:] {return T_col}
-"if" {return IF}
-"elif" {return ELIF}
-"else" {return ELSE}
-"while" {return WHILE}
+[:] {return T_col;}
+"if" {return T_if;}
+"elif" {return T_elif;}
+"else" {return T_else;}
+">" {return T_GT;}
+"<" {return T_LT;}
+">=" {return T_GTE;}
+"<=" {return T_LTE;}
+"==" {return T_EQ;}
+"!=" {return T_NEQ;}
 . {return yytext[0];}
 
 %%

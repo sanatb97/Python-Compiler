@@ -7,7 +7,7 @@ void yyerror(char *);
 int flag =0;
 
 %}
-%token T_digit T_alpha T_US T_asop T_NL
+%token T_digit T_alpha T_US T_asop T_NL T_if T_col T_elif T_else T_tab T_GT T_LT T_GTE T_LTE T_EQ T_NEQ T_asop
 %left '+' '-'
 %left '*' '/' '%'
 
@@ -21,9 +21,10 @@ P: T_alpha | T_US | T_digit |T_alpha P|T_US P|T_digit P
 */
 
 /*FOR VALID EXPRESSIONS */
-S: A | B
+S: A | B | C
 A: expr {printf("Result = %d\n",$$); return 0;}
 B: valid{printf("Valid identifier name\n");return 0;}
+C: if_stmt {printf("Valid if-else block\n"); return 0;}
 ;
 expr:expr '+' expr 	{$$=$1+$3;}
     |expr '-' expr 	{$$=$1-$3;}
@@ -39,14 +40,16 @@ expr:expr '+' expr 	{$$=$1+$3;}
 valid : T_alpha P
 P: T_alpha | T_US | T_digit |T_alpha P|T_US P|T_digit P
 
-
-/* if-elif-else */
-/* 'iter' is body of the if/elif/else block */
-S: IF A T_col T_NL iter B
-A: (expr) | expr
-B: ELIF iter A T_col T_NL iter B | ELSE T_col iter | <epsilon>
-
-;
+if_stmt: T_if cond T_col suite (T_elif T_colon suite)* [T_else T_colon suite]
+suite: T_NL T_tab asmt | else_stmt
+asmt: valid T_asop T_digit
+cond: T_digit T_GT T_digit
+    | T_digit T_LT T_digit
+    | T_digit T_GTE T_digit
+    | T_digit T_LTE T_digit
+    | T_digit T_EQ T_digit
+    | T_digit T_NEQ T_digit
+    | T_digit T_asop T_digit
 
 %%
 void main()
