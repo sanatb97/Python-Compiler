@@ -39,6 +39,13 @@ expr:expr '+' expr 	{$$=$1+$3;}
 valid : T_alpha P
 P: T_alpha | T_US | T_digit |T_alpha P|T_US P|T_digit P
 
+
+/* if-elif-else */
+/* 'iter' is body of the if/elif/else block */
+S: IF A T_col T_NL iter B
+A: (expr) | expr
+B: ELIF iter A T_col T_NL iter B | ELSE T_col iter | <epsilon>
+
 ;
 
 %%
