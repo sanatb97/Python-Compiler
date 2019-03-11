@@ -68,3 +68,4 @@ void yyerror(char* s)
 	printf("\nInvalid\n");
 }
 
+/* a=b+2 is an error */
