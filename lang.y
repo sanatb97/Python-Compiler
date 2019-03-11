@@ -41,7 +41,6 @@ expr:expr '+' expr 	{$$=$1+$3;}
 valid : T_alpha P T_NL
 P: T_US | T_digit |T_alpha P|T_US P|T_digit P
 expr_asmt: valid T_asop expr  
-
 if_stmt: T_if cond T_col body elif
 elif: T_elif T_col body elif | else | T_NL
 else: T_else T_col body
@@ -54,6 +53,7 @@ cond: T_digit T_GT T_digit
     | T_digit T_EQ T_digit
     | T_digit T_NEQ T_digit
 while_stmt: T_while cond T_col body
+
 
 %%
 void main()
