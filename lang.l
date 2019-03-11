@@ -6,8 +6,12 @@ extern int yylval;
 %%
 
 [a-zA-Z]+ {return T_alpha;}
-[0-9]+ {yylval=atoi(yytext); 
-		return T_digit;}
+[0-9]+ {yylval=atoi(yytext); return T_digit;}
+
+["]["]["]([^"]|[\n])*["]["]["][\n]* {}
+[']['][']([^']|[\n])*['][']['][\n]* {}
+[#].*[\n]* {}
+
 [_] {return T_US;}
 [\n] {return T_NL;}
 [\t] {return T_tab;}
