@@ -24,6 +24,8 @@ extern int yylval;
 "<=" {return T_LTE;}
 "==" {return T_EQ;}
 "!=" {return T_NEQ;}
+[(] {return T_lb;}
+[)] {return T_rb;}
 . {return yytext[0];}
 
 %%
