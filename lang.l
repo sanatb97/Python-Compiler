@@ -4,7 +4,9 @@ extern int yylval;
 %}
 
 %%
-
+["]["]["]([^"]|[\n])*["]["]["][\n]* {}
+[']['][']([^']|[\n])*['][']['][\n]* {}
+[#].*[\n]* {}
 [a-zA-Z]+ {return T_alpha;}
 [0-9]+ {yylval=atoi(yytext); 
 		return T_digit;}
