@@ -16,17 +16,24 @@ int flag =0;
 %%
 
 /* FOR VALID IDENTIFIER NAMES */
-/*S: valid
-valid : T_alpha P
+/*S: id
+id : T_alpha P
 P: T_alpha | T_US | T_digit |T_alpha P|T_US P|T_digit P
 */
 
 /*FOR VALID EXPRESSIONS */
 S: A | B | C | E
+<<<<<<< HEAD
 A: expr {printf("Result = %d\n",$$);}
 B: id {printf("Valid identifier name\n");}
 C: if_stmt {printf("Valid if-else block\n");}
 /*D: while_stmt {printf("Valid while construct\n");}*/
+=======
+A: expr {printf("Result = %d\n",$$); return 0;}
+B: id {printf("Valid identifier name\n");return 0;}
+C: if_stmt {printf("Valid if-else block\n"); return 0;}
+/*D: while_stmt {printf("Valid while construct\n"); return 0;}*/
+>>>>>>> 8362267fce00301f0639402988f22debe3f58d43
 E: expr_asmt {printf("Valid expression assignment\n");}
 ;
 expr:expr '+' expr  {$$=$1+$3;}
@@ -54,13 +61,23 @@ cond: T_digit T_GT T_digit
     | T_digit T_LTE T_digit
     | T_digit T_EQ T_digit
     | T_digit T_NEQ T_digit
+<<<<<<< HEAD
+=======
+/*while_stmt: T_while X T_col T_NL body*/
+>>>>>>> 8362267fce00301f0639402988f22debe3f58d43
 
 
 %%
 #include "lex.yy.c"
 int main(int argc, char *argv[])
 {
+<<<<<<< HEAD
   FILE *fp,*fo;
+=======
+    yyparse();
+
+}
+>>>>>>> 8362267fce00301f0639402988f22debe3f58d43
 
   fp= fopen(argv[1], "r");
   fo = fopen("output.py","w");
@@ -73,4 +90,8 @@ int main(int argc, char *argv[])
 void yyerror(char *s){
   printf("%d: %s %s\n", yylineno, s, yytext );
 
+<<<<<<< HEAD
   }
+=======
+/* a=b+2 is an error */
+>>>>>>> 8362267fce00301f0639402988f22debe3f58d43

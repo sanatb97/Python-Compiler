@@ -45,6 +45,7 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
+<<<<<<< HEAD
     T_name = 258,
     T_number = 259,
     T_string = 260,
@@ -160,6 +161,45 @@ extern int yydebug;
 #define T_true 311
 #define T_false 312
 #define T_in 313
+=======
+    T_digit = 258,
+    T_alpha = 259,
+    T_US = 260,
+    T_asop = 261,
+    T_NL = 262,
+    T_if = 263,
+    T_col = 264,
+    T_elif = 265,
+    T_else = 266,
+    T_tab = 267,
+    T_GT = 268,
+    T_LT = 269,
+    T_GTE = 270,
+    T_LTE = 271,
+    T_EQ = 272,
+    T_NEQ = 273,
+    T_while = 274
+  };
+#endif
+/* Tokens.  */
+#define T_digit 258
+#define T_alpha 259
+#define T_US 260
+#define T_asop 261
+#define T_NL 262
+#define T_if 263
+#define T_col 264
+#define T_elif 265
+#define T_else 266
+#define T_tab 267
+#define T_GT 268
+#define T_LT 269
+#define T_GTE 270
+#define T_LTE 271
+#define T_EQ 272
+#define T_NEQ 273
+#define T_while 274
+>>>>>>> 8362267fce00301f0639402988f22debe3f58d43
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
