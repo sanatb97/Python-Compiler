@@ -1,0 +1,2 @@
+Enter any expression | Enter any identifier name
+Result = 6
