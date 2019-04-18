@@ -2,6 +2,8 @@
 
 Execution instructions:
 
-lex lang.l && yacc -d lang.y && gcc lex.yy.c y.tab.c
+make -f Makefile
+./a.out Testcases/input_file.py
 
-./a.out
+
+Output is stored in output.txt and icg.txt
