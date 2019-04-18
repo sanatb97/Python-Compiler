@@ -45,171 +45,86 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-<<<<<<< HEAD
-    T_name = 258,
-    T_number = 259,
-    T_string = 260,
-    T_newline = 261,
-    T_eof = 262,
-    T_semi_colon = 263,
-    T_eq = 264,
-    T_comma = 265,
-    T_del = 266,
-    T_pass = 267,
-    T_break = 268,
-    T_continue = 269,
-    T_return = 270,
-    T_import = 271,
-    T_from = 272,
-    T_star = 273,
-    T_Lparan = 274,
-    T_Rparan = 275,
-    T_as = 276,
-    T_dot = 277,
-    T_if = 278,
-    T_colon = 279,
-    T_elif = 280,
-    T_else = 281,
-    T_indent = 282,
-    T_dedent = 283,
-    T_or = 284,
-    T_and = 285,
-    T_not = 286,
-    T_lt = 287,
-    T_gt = 288,
-    T_deq = 289,
-    T_ge = 290,
-    T_le = 291,
-    T_noteq = 292,
-    T_is = 293,
-    T_isnot = 294,
-    T_notin = 295,
-    T_bitwiseor = 296,
-    T_bitwiseand = 297,
-    T_bitwisexor = 298,
-    T_leftshift = 299,
-    T_rightshift = 300,
-    T_plus = 301,
-    T_minus = 302,
-    T_divide = 303,
-    T_mod = 304,
-    T_double_divide = 305,
-    T_tilde = 306,
-    T_double_star = 307,
-    T_squarebleft = 308,
-    T_squarebright = 309,
-    T_none = 310,
-    T_true = 311,
-    T_false = 312,
-    T_in = 313
+    WHILE = 258,
+    IF = 259,
+    PRINT = 260,
+    DEDENT = 261,
+    INDENT = 262,
+    END_STATEMENT = 263,
+    ELSE = 264,
+    ELIF = 265,
+    INPUT = 266,
+    BREAK = 267,
+    CONTINUE = 268,
+    RETURN = 269,
+    DEF = 270,
+    IDENTIFIER = 271,
+    DECIMALINTEGER = 272,
+    STRING = 273,
+    AND = 274,
+    OR = 275,
+    IN = 276,
+    NOT_IN = 277,
+    GE = 278,
+    LE = 279,
+    EQ = 280,
+    NE = 281,
+    UMINUS = 282,
+    NOT = 283
   };
 #endif
 /* Tokens.  */
-#define T_name 258
-#define T_number 259
-#define T_string 260
-#define T_newline 261
-#define T_eof 262
-#define T_semi_colon 263
-#define T_eq 264
-#define T_comma 265
-#define T_del 266
-#define T_pass 267
-#define T_break 268
-#define T_continue 269
-#define T_return 270
-#define T_import 271
-#define T_from 272
-#define T_star 273
-#define T_Lparan 274
-#define T_Rparan 275
-#define T_as 276
-#define T_dot 277
-#define T_if 278
-#define T_colon 279
-#define T_elif 280
-#define T_else 281
-#define T_indent 282
-#define T_dedent 283
-#define T_or 284
-#define T_and 285
-#define T_not 286
-#define T_lt 287
-#define T_gt 288
-#define T_deq 289
-#define T_ge 290
-#define T_le 291
-#define T_noteq 292
-#define T_is 293
-#define T_isnot 294
-#define T_notin 295
-#define T_bitwiseor 296
-#define T_bitwiseand 297
-#define T_bitwisexor 298
-#define T_leftshift 299
-#define T_rightshift 300
-#define T_plus 301
-#define T_minus 302
-#define T_divide 303
-#define T_mod 304
-#define T_double_divide 305
-#define T_tilde 306
-#define T_double_star 307
-#define T_squarebleft 308
-#define T_squarebright 309
-#define T_none 310
-#define T_true 311
-#define T_false 312
-#define T_in 313
-=======
-    T_digit = 258,
-    T_alpha = 259,
-    T_US = 260,
-    T_asop = 261,
-    T_NL = 262,
-    T_if = 263,
-    T_col = 264,
-    T_elif = 265,
-    T_else = 266,
-    T_tab = 267,
-    T_GT = 268,
-    T_LT = 269,
-    T_GTE = 270,
-    T_LTE = 271,
-    T_EQ = 272,
-    T_NEQ = 273,
-    T_while = 274
-  };
-#endif
-/* Tokens.  */
-#define T_digit 258
-#define T_alpha 259
-#define T_US 260
-#define T_asop 261
-#define T_NL 262
-#define T_if 263
-#define T_col 264
-#define T_elif 265
-#define T_else 266
-#define T_tab 267
-#define T_GT 268
-#define T_LT 269
-#define T_GTE 270
-#define T_LTE 271
-#define T_EQ 272
-#define T_NEQ 273
-#define T_while 274
->>>>>>> 8362267fce00301f0639402988f22debe3f58d43
+#define WHILE 258
+#define IF 259
+#define PRINT 260
+#define DEDENT 261
+#define INDENT 262
+#define END_STATEMENT 263
+#define ELSE 264
+#define ELIF 265
+#define INPUT 266
+#define BREAK 267
+#define CONTINUE 268
+#define RETURN 269
+#define DEF 270
+#define IDENTIFIER 271
+#define DECIMALINTEGER 272
+#define STRING 273
+#define AND 274
+#define OR 275
+#define IN 276
+#define NOT_IN 277
+#define GE 278
+#define LE 279
+#define EQ 280
+#define NE 281
+#define UMINUS 282
+#define NOT 283
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 
 union YYSTYPE
 {
-#line 14 "test_parser.y" /* yacc.c:1909  */
-struct token_structure* data;
+#line 162 "parser_icg.y" /* yacc.c:1909  */
 
-#line 173 "y.tab.h" /* yacc.c:1909  */
+    char         	*str;
+    int           	type;
+	struct
+	{
+	    char                 	*value;
+	    int   			type;
+	    struct BackpatchList* 	trueList;
+	    struct BackpatchList* 	falseList;
+	    struct BackpatchList* 	nextList;
+	} expr;
+	struct
+	{
+	  int				quad;
+	  struct BackpatchList* 	nextList;
+	} mark;
+
+#line 128 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
