@@ -2,8 +2,8 @@
 
 Execution instructions:
 
-make -f Makefile
-./a.out Testcases/input_file.py
+1. make -f Makefile <br>
+2. ./a.out Testcases/input_file.py <br>
 
 
 Output is stored in output.txt and icg.txt
